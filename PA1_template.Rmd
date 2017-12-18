@@ -27,7 +27,7 @@ The dataset contains 17568 observations and 3 variables:
 ### The total number of steps per day
 
 I summed the number of steps per day (61 days). Here is the histogram of the total number of steps taken each day.
-```{r sum steps per day}
+```{r sum_steps}
 steps_day <- tapply(data$steps, data$date, sum, na.rm=TRUE)
 histogram(steps_day, nint=15, type="count", xlab="Total steps per day")
 ```
@@ -88,7 +88,7 @@ head(data_full)
 
 And here is the histogram of total number of steps taken per day with the missing data filled in.
 
-```{r histogram full sum per day}
+```{r histogram full_steps}
 fullst_day <- tapply(data_full$full_steps, data_full$date, sum)
 histogram(fullst_day, nint=15, type="count", xlab="Total steps per day with filled NA")
 ```
@@ -125,7 +125,7 @@ head(data_full)
 
 Here is a plot containing a time series plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days. 
 
-```{r panel plot weekend/weekday}
+```{r plot_weekend/weekday}
 data_full <- data_full %>% group_by(interval) %>% mutate(full_mean=mean(full_steps))
 xyplot(data_full$full_mean~data_full$interval | data_full$days, layout=c(1,2), type="l", xlab="Interval", ylab="Number of steps")
 ```

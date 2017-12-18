@@ -57,7 +57,7 @@ steps_day <- tapply(data$steps, data$date, sum, na.rm=TRUE)
 histogram(steps_day, nint=15, type="count", xlab="Total steps per day")
 ```
 
-![plot of chunk sum steps per day](figure/sum steps per day-1.png)
+![plot of chunk sum_steps](figure/sum_steps-1.png)
 
 
 ```r
@@ -140,7 +140,7 @@ fullst_day <- tapply(data_full$full_steps, data_full$date, sum)
 histogram(fullst_day, nint=15, type="count", xlab="Total steps per day with filled NA")
 ```
 
-![plot of chunk histogram full sum per day](figure/histogram full sum per day-1.png)
+![plot of chunk histogram full_steps](figure/histogram full_steps-1.png)
 
 
 ```r
@@ -208,5 +208,5 @@ data_full <- data_full %>% group_by(interval) %>% mutate(full_mean=mean(full_ste
 xyplot(data_full$full_mean~data_full$interval | data_full$days, layout=c(1,2), type="l", xlab="Interval", ylab="Number of steps")
 ```
 
-![plot of chunk panel plot weekend/weekday](figure/panel plot weekend/weekday-1.png)
+![plot of chunk plot_weekend/weekday](figure/plot_weekend/weekday-1.png)
 
