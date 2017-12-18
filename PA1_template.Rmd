@@ -88,7 +88,7 @@ head(data_full)
 
 And here is the histogram of total number of steps taken per day with the missing data filled in.
 
-```{r histogram full_steps}
+```{r histogram_full_steps}
 fullst_day <- tapply(data_full$full_steps, data_full$date, sum)
 histogram(fullst_day, nint=15, type="count", xlab="Total steps per day with filled NA")
 ```

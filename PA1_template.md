@@ -18,27 +18,6 @@ library(lattice)
 library(dplyr)
 ```
 
-```
-## Warning: package 'dplyr' was built under R version 3.4.2
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
 
 ```r
 data <- read.csv("activity.csv")
@@ -140,7 +119,7 @@ fullst_day <- tapply(data_full$full_steps, data_full$date, sum)
 histogram(fullst_day, nint=15, type="count", xlab="Total steps per day with filled NA")
 ```
 
-![plot of chunk histogram full_steps](figure/histogram full_steps-1.png)
+![plot of chunk histogram_full_steps](figure/histogram_full_steps-1.png)
 
 
 ```r
@@ -177,14 +156,6 @@ I replaced the dates in variable "date" with the days of the week and created a 
 
 ```r
 w_days <- weekdays(as.Date(data_full$date))
-```
-
-```
-## Warning in strptime(xx, f <- "%Y-%m-%d", tz = "GMT"): unknown timezone
-## 'zone/tz/2017c.1.0/zoneinfo/Europe/Sofia'
-```
-
-```r
 days <- as.factor(ifelse(w_days=="Saturday"|w_days=="Sunday", "weekend", "weekday"))
 data_full <- cbind(data_full, days)
 head(data_full)
